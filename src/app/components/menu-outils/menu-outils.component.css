@@ -1,0 +1,61 @@
+.non-clickable{
+  pointer-events:none;
+}
+
+#conteneur-boutons-options-carte{
+  padding: 5px; 
+  border-radius: 20px;
+}
+
+#conteneur-sous-boutons-options-carte{
+  height: 100px;
+}
+
+#conteneur-boutons-outils{
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.conteneur-boutons-sous-categorie{
+  margin-top: 10px;
+  background-color: #424242;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#conteneur-sous-boutons-outils{
+  height: 110px;
+}
+
+.grand-bouton {
+  background-color: #424242;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  margin: auto;
+}
+
+.petit-bouton {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: auto;
+}
+
+.grande-icone {
+  color: white;
+  position: inherit;
+  font-size: 48px;
+  margin-right: 24px;
+}
+
+.petite-icone {
+  color: white;
+  position: inherit;
+  font-size: 35px;
+  margin-right: 10px;
+}

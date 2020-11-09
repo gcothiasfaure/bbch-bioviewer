@@ -1,0 +1,16 @@
+<!-- Declaration du conteneur de la carte avec l'id "map" -->
+<body>
+
+  <div id="mymap"></div>
+
+  <app-menu-outils  *ngIf='!printing'></app-menu-outils>
+
+  <app-layers *ngIf='!printing'></app-layers>
+
+  <app-recherche-selection *ngIf='!printing'></app-recherche-selection>
+
+  <app-module-recherche *ngIf='!printing'></app-module-recherche>
+
+  <app-info-couche [hidden]='!affiching'></app-info-couche>
+
+</body>

@@ -1,0 +1,15 @@
+<mat-card id='card-recherche'>
+  <mat-card-header>
+    <div></div>
+    <mat-card-title>Recherche par selection</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div>
+      <button mat-raised-button type="button" id="boutCommencer" class='butt-green'>Commencer la mesure</button>
+    </div>
+    <div [hidden]='hiddenButRecherche' id="divRecherche">
+      <button mat-raised-button type="button" id="boutRechercherType"  [disabled]='boutRechercheDisabled'>Rechercher par type</button>
+      <br><button mat-raised-button type="button" id="boutRechercherNom" [disabled]='boutRechercheDisabled'>Rechercher par nom</button>
+    </div>
+  </mat-card-content>
+</mat-card>

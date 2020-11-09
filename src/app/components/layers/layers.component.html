@@ -1,0 +1,69 @@
+<!-- Définir un elmnt mat-accordion de material pour catalogue  -->
+<mat-accordion multi="false">
+
+    <!--  elmnt mat-expansion-panel pour choisir les couches disponibles dans catalogue  -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Catalogue des couches WMS et WFS
+      </mat-expansion-panel-header>
+
+      <div class="Catalog">
+      <p>Couches disponibles :</p>
+      <mat-form-field>
+          <mat-label>Choisir une couche </mat-label>
+          <mat-select #layerChoisie [(value)]="selected">
+            <mat-option *ngFor="let layer_name of array_nom_couches" [value]="layer_name">
+              {{layer_name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Afficher la couche selectionnée par l'utilisateur -->
+        <p>You selected: {{selected}}</p>
+        <button mat-raised-button (click)="SelectLayer(layerChoisie.value, array_nom_protocol)"> Choisir cette couche  </button>
+
+        <div [innerHtml]="htmlVariable"  #container></div>
+
+        <!-- Ajouter les bouttons pour choisir les services de publication  -->
+        <ng-container *ngFor="let button of buttons">
+          <button mat-raised-button [disabled]="button.disabled" [color]="button.color" (click)="loadLayer(button.service)" class='butt'>{{button.label}}</button><br> <br>
+        </ng-container>
+
+      </div>
+      
+    </mat-expansion-panel>
+
+    <!-- elmnt mat-expansion-panel pour afficher la légende des couches ajoutées -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Légende
+        </mat-panel-title>
+        
+      </mat-expansion-panel-header>
+
+      <div class="layers">
+      <ng-container *ngFor="let layer of selectedLayers">
+        <mat-list>
+          <mat-list-item>{{layer.legendTitle}}
+            <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="deleteLayer(layer.layerObj,layer.name)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+          <mat-divider color='white'></mat-divider>
+        </mat-list>
+      </ng-container> 
+
+      </div>
+
+    </mat-expansion-panel>
+
+</mat-accordion>
+
+<!-- icone à droite de catalogue pour afficher le nombre de couches disponible sur la carte -->
+<div class="divBadge" matTooltip="nombre de couches sur la carte" matTooltipPosition='right'>
+<mat-icon matBadge={{num_selectedlayers}} matBadgeColor="warn">ballot</mat-icon>
+</div>
+
+  
+  
