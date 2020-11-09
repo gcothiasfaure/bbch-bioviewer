@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<title>ENSG : GeoDev�</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="w3.css">
+<link rel="shortcut icon" href="favicon.ico">
+<style>
+  body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".w3-modal-content").click(function(event){
+        event.stopPropagation();
+      });
+    });
+  </script>
+</head>
+
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+  <div class="w3-main" style="margin-left:200px">
+
+
+
+    <div id="ING2" class="w3-container w3-padding-large">
+      <div class="w3-row-padding">
+
+    <!-- -------------  -->
+    <!-- ZONE A EDITER  -->
+    <!-- 1. D�finir un code projet : un nom ou groupe de mots coll�s, sans espace et sans accent (ex : ClassifSupervisee)  -->
+    <!-- 2. Cr�er un dossier nomm� avec ce nom dans le dossier Data => vous y mettrez toutes vos ressources pour votre page web-->
+    <!-- 3. Remplacer partout CodeProjet par ce nom que vous venez de cr�er  -->
+    <!-- 4. Renommer aussi le fichier CodeProjet.html par ce nom  -->
+    <!-- 5. Remplacer le titre de votre projet  -->
+    <!-- 6. Mettre une description courte de votre projet (une dizaine de mots, 30 max) -->
+    <!-- 7. Choisir une image qui illustre votre projet (au format 2/3 horizontal) et remplacer ImageTemp.jpg par votre image-->
+
+
+        <div class="w3-third w3-container w3-margin-bottom" onclick="gogogo('BBCHBioviewer')">
+          <img src="./Data/BBCHBioviewer/garde.png" alt="Image de garde de BBCH Bioviewer" style="width:100%;cursor:pointer;" class="w3-hover-opacity">
+          <div class="w3-container w3-white" style="cursor:pointer;">
+            <p><b>BBCH Bioviewer</b></p>
+            <p>Développement d'un <em>viewer</em> cartographique pour la visualisation de données issues de la biodiversité française</p>
+          </div>
+        </div>
+
+
+    <!-- FIN DE ZONE A EDITER  -->
+
+
+      </div>
+    </div>
+
+
+
+
+    <!-- Template g�n�rique  -->
+    <div id="gogo" class="w3-modal" onclick="document.getElementById(gogo.style.display='none')">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px;height: 90%;overflow:auto;">
+        <span onclick="document.getElementById(gogo.style.display='none')" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">�</span>
+        <div id="gogo-content"></div>
+      </div>
+    </div>
+
+
+
+
+    <!-- End page content -->
+  </div>
+
+  <script>
+  // Script to open and close sidebar
+  function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+  }
+
+  function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+  }
+
+  function accordeon(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else {
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+
+</script>
+
+<script>
+  let content = document.getElementById('gogo-content');
+  function gogogo (id) {
+    fetch(id+'.html').then(r=>r.text()).then(r => {
+      content.innerHTML = r;
+      gogo.style.display = 'block';
+    })
+  }
+
+</script>
+
+</body></html>
