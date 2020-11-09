@@ -1,0 +1,23 @@
+mat-spinner{
+  position: absolute;
+  right: 100px;
+  bottom: 10px;
+}
+
+#boutRechercherType{
+  background-color: grey;
+  margin-top: 10px;
+}
+
+#boutRechercherNom{
+  background-color: grey;
+  margin-top: 5px;
+}
+
+.butt-green{
+  background-color: green;
+}
+
+.butt-red{
+  background-color: red;
+}

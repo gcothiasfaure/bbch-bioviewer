@@ -1,0 +1,12 @@
+<mat-card id="exp-panel-frontiere">
+
+    <mat-card-header>
+      <mat-card-title class="mat-panel-title">Frontières</mat-card-title>
+    </mat-card-header>
+
+      <div id="conteneur-boutons">
+        <mat-checkbox id='depFr' (change)='afficheFrontieres($event)' [checked]='checkedDep'>Départements Français</mat-checkbox><br>
+        <mat-checkbox id="regFr" (change)='afficheFrontieres($event)' [checked]='checkedReg'>Régions Françaises</mat-checkbox>
+      </div>
+
+  </mat-card>

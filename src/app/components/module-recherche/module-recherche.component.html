@@ -1,0 +1,71 @@
+<mat-card>
+
+  <mat-card-header>
+    <mat-card-title>
+      Module de recherche
+    </mat-card-title>
+  </mat-card-header>
+
+	<mat-tab-group class="barre" (focusChange)='reverseInfo()'>
+
+	  <mat-tab id="rechercheattribut" label="Recherche par attribut">
+
+		<form id="form-rechercheAttribut">
+			<mat-form-field class="example-full-width">
+        <mat-label>Choisir un attribut:</mat-label>
+
+  			<input id='input1'
+			  		   type="text"
+    					 placeholder="Ex: marin"
+    					 aria-label="Attribut"
+    					 matInput
+    					 [formControl]="myControl"
+    					 [matAutocomplete]="auto">
+
+    		<mat-autocomplete #auto="matAutocomplete" >
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option}}</mat-option>
+			  </mat-autocomplete>
+
+			 </mat-form-field>
+       <button id='valide1' mat-raised-button color='black' (click)="recherche(['zn','nat','inpg','ep'],present)" [disabled]='(myControl.value==null || myControl.value=="") '>Valider</button>
+		 </form>
+
+	  </mat-tab>
+
+      <mat-tab id="recherchenom" label="Recherche par nom" [disabled]='infoCard'>
+
+        <form id="form-rechercheAttribut">
+          <mat-form-field class="examples-full-width">
+            <mat-label>Entrez le nom de la couche:</mat-label>
+
+            <input type="text"
+            			 placeholder="Ex: marine"
+            			 aria-label="Nom"
+            			 matInput
+            			 [formControl]="myControlN"
+            			 [matAutocomplete]="auto1">
+
+            <mat-autocomplete #auto1="matAutocomplete">
+              <mat-option *ngFor="let optionN of filteredOptionsN | async" [value]="optionN"> {{optionN}} </mat-option>
+		        </mat-autocomplete>
+		      </mat-form-field>
+
+		      <button id='valide2' mat-raised-button color='black' (click)="addPlugN(array_nom_couches,presentN)" [disabled]='(myControlN.value==null || myControlN.value=="") '> Valider </button>
+		    </form>
+	    </mat-tab>
+
+   </mat-tab-group>
+
+</mat-card>
+
+<mat-card *ngIf='infoCard && info' id="infoCard">
+  <mat-card-content>
+    <p>Info : Veuillez selectionner une zone où afficher la couche</p>
+  </mat-card-content>
+</mat-card>
+
+<div id="divBoutSuppr">
+  <button mat-icon-button id="boutSuppr" matTooltip="Supprimer la couche" matTooltipPosition='right' [disabled]='boutSupprDisa'>
+    <mat-icon aria-hidden="true" id="iconeSuppr" class="butt-disabled" (click)='deleteSelection()'>delete</mat-icon>
+  </button>
+</div>

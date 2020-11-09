@@ -1,0 +1,46 @@
+
+<app-sous-menu-basemap *ngIf='sousMenuBasemapVisibility'></app-sous-menu-basemap>
+
+<app-sous-menu-contours-territ *ngIf='sousMenuContoursTerritoiresVisibility'></app-sous-menu-contours-territ>
+
+<app-sous-menu-mesure *ngIf='sousMenuMesureVisibility'></app-sous-menu-mesure>
+
+<div id="conteneur-boutons-du-menu-outils">
+
+  <div id="conteneur-boutons-options-carte">
+
+    <button mat-icon-button id="grand-bouton-options-carte" class="grand-bouton" matTooltip="Options de carte" matTooltipPosition='left' [disabled]='menuDisabled'>
+      <mat-icon aria-hidden="true" id='grande-icone-options-carte' (click)='afficheConteneurSousBoutonsOptionsCarte($event)' class="grande-icone" >map</mat-icon>
+    </button>
+
+    <div id="conteneur-sous-boutons-options-carte" *ngIf='sousBoutonsOptionsCarteVisibility' class="conteneur-boutons-sous-categorie">
+
+      <button mat-icon-button id="petit-bouton-basemap" class="petit-bouton" [matTooltip]="toolTipForBasemapBouton" matTooltipPosition='left'>
+        <mat-icon aria-hidden="true" id='petite-icone-basemap' class="petite-icone" (click)='afficheSousMenu($event)'>layers</mat-icon>
+      </button>
+
+      <button mat-icon-button id="petit-bouton-contours-territoires" class="petit-bouton" [matTooltip]="toolTipForContoursTerritoiresBouton" matTooltipPosition='left'>
+        <mat-icon aria-hidden="true" id='petite-icone-contours-territoires' class="petite-icone" (click)='afficheSousMenu($event)'>emoji_flags</mat-icon>
+      </button>
+
+    </div>
+  </div>
+
+  <div id="conteneur-boutons-outils">
+
+    <button mat-icon-button id="grand-bouton-outils" class="grand-bouton" matTooltip="Outils" matTooltipPosition='left' [disabled]='menuDisabled'>
+      <mat-icon aria-hidden="true" id='grande-icone-outils' (click)='afficheConteneurSousBoutonsOutils($event)' class="grande-icone">build</mat-icon>
+    </button>
+
+    <div id="conteneur-sous-boutons-outils" *ngIf='sousBoutonsOutilsVisibility' class="conteneur-boutons-sous-categorie">
+
+      <button mat-icon-button id="petit-bouton-mesure" class="petit-bouton" [matTooltip]="toolTipForMesureBouton" matTooltipPosition='left' [disabled]='menuDisabled'>
+        <mat-icon aria-hidden="true" id='petite-icone-mesure' class="petite-icone" (click)='afficheSousMenu($event)'>square_foot</mat-icon>
+      </button>
+
+      <button mat-icon-button id="petit-bouton-impression" class="petit-bouton" [matTooltip]="toolTipForImpressionBouton" matTooltipPosition='left' [disabled]='menuDisabled'>
+        <mat-icon aria-hidden="true" id='petite-icone-impression' class="petite-icone" (click)='afficheSousMenu($event)'>print</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
